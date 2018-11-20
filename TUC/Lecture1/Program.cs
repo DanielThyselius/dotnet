@@ -6,10 +6,10 @@ namespace Lecture1
     {
         static void Main(string[] args)
         {
-            var Klas = new Person();
-            var Daniel = new Person("Daniel Thyselius", 26);
-            Klas.Name = "Klas Gustafsson";
-            Klas.Age = 29;
+            Console.WriteLine("Hej, vem är du själv?");
+            var name = Console.ReadLine();
+            
+
         }
     }
 }

@@ -28,7 +28,7 @@ namespace Lecture_3._3
                 Color = "Green"
             };
 
-
+            
             animalList.Add(cat);
             animalList.Add(dog);
             animalList.Add(snake);
