@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Reflection;
 using System.Text;
 
 namespace Lecture1
@@ -33,8 +34,18 @@ namespace Lecture1
         public void PrintInfo()
         {
             Console.WriteLine($"Name: {Name}{Environment.NewLine} Age: {Age} {Environment.NewLine}");
+            Console.WriteLine($"Color: {Color}{Environment.NewLine} Breed: {Breed} {Environment.NewLine}");
+            Console.WriteLine($"Owner: {Owner}{Environment.NewLine}");
+            if (Hungry)
+            {
+                Console.WriteLine($"{Name} is hungry");
+            }
+            else
+            {
+                Console.WriteLine($"{Name} is not hungry");
+            }
         }
-        
+
 
     }
 }
