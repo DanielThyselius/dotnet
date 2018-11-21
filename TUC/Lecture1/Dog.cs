@@ -9,15 +9,14 @@ namespace Lecture1
     {
         public string Name { get; set; }
         public int Age { get; set; }
-        public string Color { get; set; }
-        public string Breed { get; set; }
         public string Owner { get; set; }
         public bool Hungry { get; set; }
 
-        public Dog()
+        public Dog(string user)
         {
             Age = 0;
             Hungry = true;
+            Owner = user;
         }
 
         public void Speak()
@@ -34,7 +33,7 @@ namespace Lecture1
         public void PrintInfo()
         {
             Console.WriteLine($"Name: {Name}{Environment.NewLine} Age: {Age} {Environment.NewLine}");
-            Console.WriteLine($"Color: {Color}{Environment.NewLine} Breed: {Breed} {Environment.NewLine}");
+            
             Console.WriteLine($"Owner: {Owner}{Environment.NewLine}");
             if (Hungry)
             {

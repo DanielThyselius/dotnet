@@ -63,7 +63,7 @@ namespace Lecture1
 
         private void CreateDog()
         {
-            var dog = new Dog();
+            var dog = new Dog(User);
             Console.WriteLine("Vad heter din hund?");
             dog.Name = Console.ReadLine();
             Console.WriteLine("Hur gammal är din hund?");
@@ -79,12 +79,9 @@ namespace Lecture1
                 Console.WriteLine("Fel input, måste vara ett heltal");
                 Question();
             }
-            Console.WriteLine("Vilken ras är din hund?");
-            dog.Breed = Console.ReadLine();
 
             try
             {
-                dog.Owner = this.User;
                 this.CurrentDog = dog;
                 Console.WriteLine("Hund skapad!");
             }
