@@ -11,7 +11,6 @@ namespace Lecture1
         public int Age { get; set; }
         public string Owner { get; set; }
         public bool Hungry { get; set; }
-
         public Dog(string user)
         {
             Age = 0;
@@ -32,8 +31,7 @@ namespace Lecture1
         }
         public void PrintInfo()
         {
-            Console.WriteLine($"Name: {Name}{Environment.NewLine} Age: {Age} {Environment.NewLine}");
-            
+            Console.WriteLine($"Name: {Name}{Environment.NewLine} Age: {Age}");
             Console.WriteLine($"Owner: {Owner}{Environment.NewLine}");
             if (Hungry)
             {
