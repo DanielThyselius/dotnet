@@ -1,6 +1,7 @@
 ﻿using System;
+using System.Collections.Generic;
 
-namespace Lecture1
+namespace Lecture2
 {
     class Program
     {
@@ -17,9 +18,7 @@ namespace Lecture1
 
     class UserInterface
     {
-        public Dog CurrentDog { get; set; }
-        public Cat CurrentCat { get; set; }
-        public Collar CurrentCollar { get; set; }
+        public List<Animal> Animals { get; set; } = new List<Animal>();
         public string User { get; set; }
         public bool Exit { get; set; }
         public void Init()
@@ -34,10 +33,13 @@ namespace Lecture1
             Console.WriteLine("");
             Console.WriteLine("***MENY***");
             Console.WriteLine("1. Skapa en ny hund");
-            Console.WriteLine("2. Visa info om din hund");
-            Console.WriteLine("3. Skapa en ny katt");
-            Console.WriteLine("4. Visa info om din katt");
-            Console.WriteLine("5. Vill du avsluta programmet");
+            Console.WriteLine("2. Skapa en ny katt");
+            Console.WriteLine("3. Visa djur i listan");
+            Console.WriteLine("4. Låt alla djuren säga sitt");
+            Console.WriteLine("5. Visa djur som är hungriga");
+            Console.WriteLine("6. Mata ett djur");
+            Console.WriteLine("7. Ta bort ett djur");
+            Console.WriteLine("0. Avsluta programmet");
             var response = Console.ReadKey();
             Console.WriteLine("");
 
@@ -48,7 +50,6 @@ namespace Lecture1
             catch (Exception ex)
             {
                 Console.WriteLine("felaktig input, måste vara ett tal");
-                Question();
             }
 
             switch (Convert.ToInt16(response.KeyChar.ToString()))
@@ -57,21 +58,97 @@ namespace Lecture1
                     CreateDog();
                     break;
                 case 2:
-                    CurrentDog.PrintInfo();
-                    Console.WriteLine("");
-                    break;
-                case 3:
                     CreateCat();
                     break;
+                case 3:
+                    ListAnimals();
+                    break;
                 case 4:
-                    CurrentCat.PrintInfo();
-                    Console.WriteLine("");
+                    CreateAnimalOrchestra();
                     break;
                 case 5:
+                    ListHungry();
+                    break;
+                case 6:
+                    FeedAnimal();
+                    break;
+                case 7:
+                    RemoveAnimal();
+                    break;
+                case 0:
                     Exit = true;
                     break;
                 default:
                     break;
+            }
+        }
+
+        private void RemoveAnimal()
+        {
+            Console.WriteLine("Vem vill du ta bort från listan?");
+            var name = Console.ReadLine();
+            var found = false;
+            for (int i = Animals.Count -1; i >= 0; i--)
+            {
+                if (Animals[i].Name == name)
+                {
+                    Animals.RemoveAt(i);
+                    Console.WriteLine($"{name} har tagits bort från listan");
+                    found = true;
+                }
+            }
+            if (found == false)
+            {
+                Console.WriteLine("Finns inget djur med det namnet, vänligen försök igen.");
+            }
+        }
+        
+        private void FeedAnimal()
+        {
+            Console.WriteLine("Vem vill du mata?");
+            var name = Console.ReadLine();
+            var found = false;
+            foreach (Animal animal in Animals)
+            {
+                if (animal.Name == name)
+                {
+                    Console.WriteLine($"Försöker mata {name}...");
+                    animal.Eat();
+                    found = true;
+                }
+            }
+            if (found == false)
+            {
+                Console.WriteLine("Finns inget djur med det namnet, vänligen försök igen.");
+            }
+        }
+
+        private void ListHungry()
+        {
+            foreach (Animal animal in Animals)
+            {
+                if (animal.IsHungry())
+                {
+                    Console.WriteLine($" {animal.Name} är hungrig");
+                }
+            }
+        }
+
+        private void CreateAnimalOrchestra()
+        {
+            foreach (Animal animal in Animals)
+            {
+                animal.Speak();
+            }
+        }
+
+        private void ListAnimals()
+        {
+            foreach (Animal animal in Animals)
+            {
+                animal.PrintInfo();
+                Console.WriteLine("~~~~~~~~~~~~~~~");
+                Console.WriteLine("");
             }
         }
 
@@ -96,7 +173,7 @@ namespace Lecture1
             dog.Collar = CreateCollar();
             try
             {
-                this.CurrentDog = dog;
+                Animals.Add(dog);
                 Console.WriteLine("Hund skapad!");
             }
             catch (Exception)
@@ -125,7 +202,7 @@ namespace Lecture1
             cat.Collar = CreateCollar();
             try
             {
-                this.CurrentCat = cat;
+                Animals.Add(cat);
                 Console.WriteLine("Katt skapad!");
             }
             catch (Exception)
@@ -142,7 +219,6 @@ namespace Lecture1
 
             Console.WriteLine("Vilken färg ska halsbandet ha?");
             collar.Color = Console.ReadLine();
-
             return collar;
         }
     }

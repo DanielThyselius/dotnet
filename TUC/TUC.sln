@@ -5,11 +5,15 @@ VisualStudioVersion = 15.0.28010.2036
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Lecture1", "Lecture1\Lecture1.csproj", "{9808B2FD-B3AB-42B9-B9F5-767C54DC0C4C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lecture3", "Lecture3\Lecture3.csproj", "{92EA7A34-3294-4A63-8877-B8639C4AB281}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Lecture3", "Lecture3\Lecture3.csproj", "{92EA7A34-3294-4A63-8877-B8639C4AB281}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lecture_3.2", "Lecture_3.2\Lecture_3.2.csproj", "{349669BC-3D92-4397-807D-B69C4047EBF0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Lecture_3.2", "Lecture_3.2\Lecture_3.2.csproj", "{349669BC-3D92-4397-807D-B69C4047EBF0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lecture_3.3", "Lecture_3.3\Lecture_3.3.csproj", "{83020CE4-87AD-4D6C-BF92-052B7EF62F30}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Lecture_3.3", "Lecture_3.3\Lecture_3.3.csproj", "{83020CE4-87AD-4D6C-BF92-052B7EF62F30}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lecture2", "Lecture2\Lecture2.csproj", "{A2DC3AB2-EAA7-4C02-906D-91E6D740FB08}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Types", "DataTypes\Types.csproj", "{6F30D550-BCC3-49F5-A7FC-A2C21843220D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +37,14 @@ Global
 		{83020CE4-87AD-4D6C-BF92-052B7EF62F30}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{83020CE4-87AD-4D6C-BF92-052B7EF62F30}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{83020CE4-87AD-4D6C-BF92-052B7EF62F30}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A2DC3AB2-EAA7-4C02-906D-91E6D740FB08}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A2DC3AB2-EAA7-4C02-906D-91E6D740FB08}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A2DC3AB2-EAA7-4C02-906D-91E6D740FB08}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A2DC3AB2-EAA7-4C02-906D-91E6D740FB08}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6F30D550-BCC3-49F5-A7FC-A2C21843220D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6F30D550-BCC3-49F5-A7FC-A2C21843220D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6F30D550-BCC3-49F5-A7FC-A2C21843220D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6F30D550-BCC3-49F5-A7FC-A2C21843220D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

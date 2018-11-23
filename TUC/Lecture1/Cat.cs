@@ -5,7 +5,7 @@ using System.Text;
 
 namespace Lecture1
 {
-    class Dog
+    class Cat
     {
         public string Name { get; set; }
         public int Age { get; set; }
@@ -13,7 +13,7 @@ namespace Lecture1
         public bool Hungry { get; set; }
         public Collar Collar { get; set; }
 
-        public Dog(string user)
+        public Cat(string user)
         {
             Age = 0;
             Hungry = true;
@@ -22,18 +22,19 @@ namespace Lecture1
 
         public void Speak()
         {
-            Console.WriteLine("Voff!");
+            Console.WriteLine("Mjaao!");
         }
         public void Eat()
         {
             var response = (Hungry) ? $"{Name} äter" : $"{Name} är inte hungrig";
             Console.WriteLine(response);
             Hungry = false;
+
         }
         public void PrintInfo()
         {
             Console.WriteLine($"Namn: {Name}{Environment.NewLine} Ålder: {Age} {Environment.NewLine} Ägare: {Owner}");
-            if(Collar != null)
+            if (Collar != null)
             {
                 Console.WriteLine($"{Name} har ett {Collar.Color} halsband gjort av {Collar.Material}");
             }
