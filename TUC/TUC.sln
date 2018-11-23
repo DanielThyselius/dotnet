@@ -11,6 +11,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Lecture_3.2", "Lecture_3.2\
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Lecture_3.3", "Lecture_3.3\Lecture_3.3.csproj", "{83020CE4-87AD-4D6C-BF92-052B7EF62F30}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Zoo", "Zoo\Zoo.csproj", "{06965B9E-D08D-445C-BBAD-4B85C887A28A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ZooTest", "ZooTest\ZooTest.csproj", "{97D99104-F766-4EAF-B565-25D65E1C18B3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Lecture_3.3", "Lecture_3.3\Lecture_3.3.csproj", "{83020CE4-87AD-4D6C-BF92-052B7EF62F30}"
+EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lecture2", "Lecture2\Lecture2.csproj", "{A2DC3AB2-EAA7-4C02-906D-91E6D740FB08}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Types", "DataTypes\Types.csproj", "{6F30D550-BCC3-49F5-A7FC-A2C21843220D}"
@@ -45,6 +50,14 @@ Global
 		{6F30D550-BCC3-49F5-A7FC-A2C21843220D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6F30D550-BCC3-49F5-A7FC-A2C21843220D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6F30D550-BCC3-49F5-A7FC-A2C21843220D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{06965B9E-D08D-445C-BBAD-4B85C887A28A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{06965B9E-D08D-445C-BBAD-4B85C887A28A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{06965B9E-D08D-445C-BBAD-4B85C887A28A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{06965B9E-D08D-445C-BBAD-4B85C887A28A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{97D99104-F766-4EAF-B565-25D65E1C18B3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{97D99104-F766-4EAF-B565-25D65E1C18B3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{97D99104-F766-4EAF-B565-25D65E1C18B3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{97D99104-F766-4EAF-B565-25D65E1C18B3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
