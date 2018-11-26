@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 
 namespace Zoo
@@ -17,9 +18,30 @@ namespace Zoo
         {
             return 0;
         }
-        public List<;T> Eat(List<T>)
+        //public List<T> Eat<T>(List<T> list)
+        //{
+        //    var result =  list.OfType<Animal>().Where(x => x.Name)
+        //}
+        public List<Animal> Eat(List<Animal> list)
         {
+            Random random = new Random();
+            
+            if (!list.Contains(this))
 
+                throw new ArgumentException("List has to contain called Lion");
+
+            var lionIndex = list.IndexOf(this);
+            int _randomNumber = lionIndex;
+
+            while (_randomNumber == lionIndex)
+            {
+                _randomNumber = random.Next(0, list.Count); 
+            }
+
+            list.RemoveAt(_randomNumber);
+            return list;
+
+                        
         }
     }
     public class Panda : Animal
