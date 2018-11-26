@@ -15,7 +15,11 @@ namespace Zoo
 
         public override double CalculateFood()
         {
-            throw new NotImplementedException();
+            return 0;
+        }
+        public List<;T> Eat(List<T>)
+        {
+
         }
     }
     public class Panda : Animal
@@ -29,7 +33,18 @@ namespace Zoo
 
         public override double CalculateFood()
         {
-            throw new NotImplementedException();
+            Age = (Age > 6) ? 6 : Age;
+
+            if (Age < 0)
+            {
+                throw new Exception("Age can not be negative");
+            }
+            if (Weight <= 0)
+            {
+                throw new Exception("Weight can not be negative or zero");
+            }
+            
+            return Age*2;
         }
     }
     public class Penguin : Animal
@@ -62,6 +77,10 @@ namespace Zoo
             if (Age < 0)
             {
                 throw new Exception("Age can not be negative");
+            }
+            if (Weight <=0)
+            {
+                throw new Exception("Weight can not be negative or zero");
             }
             double ageDividedBy10 = Convert.ToDouble(Age)/10;
 

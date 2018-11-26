@@ -35,6 +35,7 @@ namespace Types
             Console.WriteLine($"valTypeCopy = {valTypeCopy.x},{valTypeCopy.y} ");
             Console.WriteLine($"refTypeCopy = {refTypeCopy.x},{refTypeCopy.y} ");
 
+            
             //TODO: Skapa en reference type
         }
     }

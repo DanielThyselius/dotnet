@@ -4,8 +4,9 @@ using System.Text;
 
 namespace Types
 {
-    class ReferenceTypePoint
+    public class ReferenceTypePoint 
     {
+        public static int dim = 2;
         public int x { get; set; }
         public int y { get; set; }
 
@@ -18,5 +19,6 @@ namespace Types
             x = p1;
             y = p2;
         }
+       
     }
 }
