@@ -17,10 +17,10 @@ namespace Zoo
         {
             return 0;
         }
-        public List<;T> Eat(List<T>)
-        {
+        //public List<T> Eat(List<T>)
+        //{
 
-        }
+        //}
     }
     public class Panda : Animal
     {

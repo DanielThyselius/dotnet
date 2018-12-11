@@ -1,103 +1,121 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
+using System.Text;
 
-namespace Lecture2
+namespace Lecture3
 {
-    class Program
-    {
-        static void Main(string[] args)
-        {
-            var ui = new UserInterface();
-            ui.Init();
-            while (ui.Exit == false)
-            {
-                ui.Question();
-            }
-        }
-    }
-
     class UserInterface
     {
         public List<Animal> Animals { get; set; } = new List<Animal>();
-        public string User { get; set; }
+        public Person User { get; set; }
+        public List<Person> Staff { get; set; }
         public bool Exit { get; set; }
         public string Header { get; private set; }
 
         public void Init()
         {
-            Header = "~~~~~~ Daniels djurdagis ~~~~~~~~ \n";
-            Console.WriteLine(Header);
+            User = new Person();
             Console.WriteLine("Hej, vem är du?");
-            User = Console.ReadLine();
+            User.Name = Console.ReadLine();
+            Console.WriteLine("Hur gammal är du?");
+            User.Age = Convert.ToInt16(Console.ReadLine());
+            Staff = new List<Person>();
+            Staff.Add(User);
+            Header = $"~~~~~~ {User.Name}s djurdagis ~~~~~~~~ \n";
+            Console.WriteLine($"Välkommen till ditt djurdagis {User.Name}");
         }
 
         public void Question()
         {
             Console.WriteLine("");
             Console.WriteLine("Tryck på valfri tangent för meny...");
-            Console.ReadKey();
-            Console.Clear();
-            Console.WriteLine(Header);
+            Console.ReadKey(true);
+            NewScreen();
             Console.WriteLine("***MENY***");
             Console.WriteLine("1. Skapa en ny hund");
             Console.WriteLine("2. Skapa en ny katt");
             Console.WriteLine("3. Visa djur i listan");
-            Console.WriteLine("4. Låt alla djuren säga sitt");
+            Console.WriteLine("4. Låt alla säga sitt");
             Console.WriteLine("5. Visa djur som är hungriga");
             Console.WriteLine("6. Mata ett djur");
             Console.WriteLine("7. Ta bort ett djur");
+            Console.WriteLine("8. Lägg till personal");
+            Console.WriteLine("9. Hämta alla djur med ett namn längre än 5 bokstäver");
             Console.WriteLine("0. Avsluta programmet");
-            var response = Console.ReadKey();
-            Console.WriteLine("");
+            var response = Console.ReadKey(true);
 
-            try
+            NewScreen();
+            switch (response.KeyChar.ToString())
             {
-                Convert.ToInt16(response.KeyChar.ToString());
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine("felaktig input, måste vara ett tal");
-            }
-            // Töm konsollen och visa en header
-            Console.Clear();
-            Console.WriteLine(Header);
-            switch (Convert.ToInt16(response.KeyChar.ToString()))
-            {
-                case 1:
+                case "1":
                     CreateDog();
                     break;
-                case 2:
+                case "2":
                     CreateCat();
                     break;
-                case 3:
+                case "3":
                     ListAnimals();
                     break;
-                case 4:
-                    CreateAnimalOrchestra();
+                case "4":
+                    CreateEverythingOrchestra();
                     break;
-                case 5:
+                case "5":
                     ListHungry();
                     break;
-                case 6:
+                case "6":
                     FeedAnimal();
                     break;
-                case 7:
+                case "7":
                     RemoveAnimal();
                     break;
-                case 0:
+                case "8":
+                    AddStaff();
+                    break;
+                case "9":
+                    GetAnimalsWithNamesLongerThan(5);
+                    break;
+                case "0":
                     Exit = true;
                     break;
                 default:
+                    // Om användaren skrivit in något som inte finns med i listan så skriv ut ett felmeddelande
+                    // Och skicka tillbaka användaren till menyn
+                    Console.Clear();
+                    Console.WriteLine(Header);
+                    Console.WriteLine("WHOOOPS!");
+                    Console.WriteLine("Ditt val fanns inte i listan");
+                    Console.WriteLine("Vänligen försök igen.");
                     break;
             }
         }
 
+        private void GetAnimalsWithNamesLongerThan(int v)
+        {
+            var longNameAnimals = Animals.Where(x => x.Name.Length > v).ToList();
+            Console.WriteLine($"Djur med namn längre än {v} bokstäver");
+            foreach (Animal animal in longNameAnimals)
+            {
+                Console.WriteLine(animal.Name);
+            }
+
+        }
+
+        private void AddStaff()
+        {
+            var newStaff = new Person();
+            Console.WriteLine("Vad heter den nya personen?");
+            newStaff.Name = Console.ReadLine();
+            Console.WriteLine("Hur gammal är hen?");
+            newStaff.Age = Convert.ToInt16(Console.ReadLine());
+            Staff.Add(newStaff);
+        }
         private void RemoveAnimal()
         {
             Console.WriteLine("Vem vill du ta bort från listan?");
             var name = Console.ReadLine();
             var found = false;
-            for (int i = Animals.Count -1; i >= 0; i--)
+            for (int i = Animals.Count - 1; i >= 0; i--)
             {
                 if (Animals[i].Name == name)
                 {
@@ -111,7 +129,7 @@ namespace Lecture2
                 Console.WriteLine("Finns inget djur med det namnet, vänligen försök igen.");
             }
         }
-        
+
         private void FeedAnimal()
         {
             Console.WriteLine("Vem vill du mata?");
@@ -151,9 +169,25 @@ namespace Lecture2
             }
         }
 
+        private void CreateEverythingOrchestra()
+        {
+            var EverythingThatSpeaksList = new List<IAlive>();
+            EverythingThatSpeaksList.AddRange(Animals);
+            EverythingThatSpeaksList.Add(User);
+            EverythingThatSpeaksList = EverythingThatSpeaksList.OrderByDescending(x => x.Age).ToList();
+            foreach (IAlive livingThing in EverythingThatSpeaksList)
+            {
+                if (livingThing is ICanSpeak speaker)
+                {
+                speaker.Speak();
+                }
+            }
+        }
+
         private void ListAnimals()
         {
-            foreach (Animal animal in Animals)
+            var sortedAnimals = Animals.OrderBy(x => x.Name).ToList();
+            foreach (Animal animal in sortedAnimals)
             {
                 animal.PrintInfo();
                 Console.WriteLine("~~~~~~~~~~~~~~~");
@@ -163,7 +197,7 @@ namespace Lecture2
 
         private void CreateDog()
         {
-            var dog = new Dog(User);
+            var dog = new Dog(User.Name);
             Console.WriteLine("Vad heter din hund?");
             dog.Name = Console.ReadLine();
 
@@ -192,7 +226,7 @@ namespace Lecture2
         }
         private void CreateCat()
         {
-            var cat = new Cat(User);
+            var cat = new Cat(User.Name);
             Console.WriteLine("Vad heter din katt?");
             cat.Name = Console.ReadLine();
 
@@ -230,7 +264,13 @@ namespace Lecture2
             collar.Color = Console.ReadLine();
             return collar;
         }
+        /// <summary>
+        /// Clears the console and adds the header to the new screen
+        /// </summary>
+        private void NewScreen()
+        {
+            Console.Clear();
+            Console.WriteLine(Header);
+        }
     }
 }
-
-

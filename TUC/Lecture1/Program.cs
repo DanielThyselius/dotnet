@@ -8,6 +8,7 @@ namespace Lecture1
         {
             var ui = new UserInterface();
             ui.Init();
+            
             while (ui.Exit == false)
             {
                 ui.Question();

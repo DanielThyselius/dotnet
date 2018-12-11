@@ -1,11 +1,12 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
-namespace Lecture3
+namespace Demo3
 {
-    /// <summary>
-    /// Encapsulation Exempel
-    /// </summary>
-    public class Program
+    class Program
     {
         static void Main(string[] args)
         {
@@ -13,15 +14,8 @@ namespace Lecture3
             ui.Init();
             while (ui.Exit == false)
             {
-                ui.Question();
+                ui.Menu();
             }
-
-        }     
+        }
     }
 }
-
-
-
-
-
-

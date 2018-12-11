@@ -1,5 +1,6 @@
 ﻿using System;
-
+using System.Collections.Generic;
+#nullable disable
 namespace Types
 {
     class Program
@@ -18,8 +19,11 @@ namespace Types
         {
             var refType = new ReferenceTypePoint(1, 3);
             var valType = new ValueTypePoint(1, 3);
+
             Console.WriteLine($"Value type = {valType.x},{valType.y} ");
             Console.WriteLine($"Reference type = {refType.x},{refType.y} ");
+            Console.ReadKey();
+
             var valTypeCopy = valType;
             var refTypeCopy = refType;
             Console.WriteLine("Creating a copy of both values");
